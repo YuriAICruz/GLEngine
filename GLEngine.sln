@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineWindow", "EngineWindow\EngineWindow.vcxproj", "{7F84E9D3-F163-4D62-9087-0E585136A1A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RendererEngine", "RendererEngine\RendererEngine.vcxproj", "{B7286823-750C-4865-AC49-AA836F82B33C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F84E9D3-F163-4D62-9087-0E585136A1A3}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7F84E9D3-F163-4D62-9087-0E585136A1A3}.Debug|Any CPU.Build.0 = Debug|Win32
+		{7F84E9D3-F163-4D62-9087-0E585136A1A3}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7F84E9D3-F163-4D62-9087-0E585136A1A3}.Release|Any CPU.Build.0 = Release|Win32
+		{B7286823-750C-4865-AC49-AA836F82B33C}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{B7286823-750C-4865-AC49-AA836F82B33C}.Debug|Any CPU.Build.0 = Debug|Win32
+		{B7286823-750C-4865-AC49-AA836F82B33C}.Release|Any CPU.ActiveCfg = Release|Win32
+		{B7286823-750C-4865-AC49-AA836F82B33C}.Release|Any CPU.Build.0 = Release|Win32
+	EndGlobalSection
+EndGlobal
