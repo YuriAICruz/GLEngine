@@ -21,6 +21,7 @@ namespace Gly
         if (checkError(vs, c))
         {
             glDeleteShader(vs);
+            return;
         }
 
         unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
@@ -32,6 +33,7 @@ namespace Gly
         if (checkError(fs, c))
         {
             glDeleteShader(fs);
+            return;
         }
 
         glAttachShader(program, vs);
