@@ -165,11 +165,19 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\GlyRenderer.cpp" />
     <ClCompile Include="src\GlyWindow.cpp" />
+    <ClCompile Include="src\Material.cpp" />
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\framework.h" />
     <ClInclude Include="src\GlyRenderer.h" />
     <ClInclude Include="src\GlyWindow.h" />
+    <ClInclude Include="src\Material.h" />
+    <ClInclude Include="src\Model.h" />
+    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

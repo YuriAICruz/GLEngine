@@ -1,18 +1,21 @@
 ﻿#pragma once
+#include "framework.h"
 #include <string>
 
 class GLFWwindow;
 
 namespace Gly
 {
-    class GlyWindow
+    class GlyRenderer;
+
+    class GLY_API GlyWindow
     {
     private:
         GLFWwindow* window;
+        GlyRenderer& renderer;
 
     public:
-        GlyWindow(){}
-        GlyWindow(int width, int height, const std::string& title);
+        GlyWindow(GlyRenderer& rdr, int width, int height, const std::string& title);
         ~GlyWindow();
 
         GLFWwindow* getGLFWindow() const

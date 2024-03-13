@@ -1,16 +1,23 @@
 ﻿#pragma once
 #include "framework.h"
-#include "GlyWindow.h"
+#include "Model.h"
+
+class GLFWwindow;
 
 namespace Gly
 {
     class GLY_API GlyRenderer
     {
+    private:
+        std::vector<Model*> modelsToRender;
     public:
-        GlyRenderer(int argc, char* argv[]);
+        GlyRenderer();
         ~GlyRenderer();
 
-    private:
-        GlyWindow window;
+        void render(GLFWwindow* window);
+
+        void addToContext(Model* model);
+        void clearContext();
+        void removeFromContext(Model* model);
     };
 }
