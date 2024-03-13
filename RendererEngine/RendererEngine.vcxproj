@@ -168,6 +168,8 @@
     <ClCompile Include="src\Material.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\shaders\unlit.frag.glsl" />
+    <ClCompile Include="src\shaders\unlit.vert.glsl" />
     <ClCompile Include="src\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>

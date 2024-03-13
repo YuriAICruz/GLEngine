@@ -10,6 +10,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "Shader.h"
+
 namespace Gly
 {
     GlyWindow::GlyWindow(GlyRenderer& rdr, int width, int height, const std::string& title) : renderer(rdr)
@@ -47,7 +49,8 @@ namespace Gly
             -1, -1, 0
         };
 
-        Material mat = Material();
+        Shader shader = Shader("shaders/unlit.vert.glsl", "shaders/unlit.frag.glsl");
+        Material mat = Material(&shader);
         Model triangle = Model(
             std::vector<float>(std::begin(vertices), std::end(vertices)),
             std::vector<int>(),
