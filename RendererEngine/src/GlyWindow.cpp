@@ -49,11 +49,15 @@ namespace Gly
             -1, -1, 0
         };
 
-        Shader shader = Shader("shaders/unlit.vert.glsl", "shaders/unlit.frag.glsl");
+        float triangles[3] = {
+            0, 1, 2
+        };
+
+        Shader shader = Shader("./shaders/unlit.vert.glsl", ".\\shaders\\unlit.frag.glsl");
         Material mat = Material(&shader);
         Model triangle = Model(
             std::vector<float>(std::begin(vertices), std::end(vertices)),
-            std::vector<int>(),
+            std::vector<int>(std::begin(triangles), std::end(triangles)),
             Vector3(0, 0, 0),
             Vector3(1, 1, 1),
             mat

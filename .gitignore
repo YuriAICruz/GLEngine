@@ -9,6 +9,8 @@ riderModule.iml
 */x86/
 */doc/
 
+/EngineWindow/shaders/
+
 # IDEs
 .idea/
 .vs/

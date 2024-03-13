@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Shader.h"
 
 namespace Gly
 {
@@ -10,5 +11,9 @@ namespace Gly
         Shader* shader;
     public:
         Material(Shader* shader) : shader(shader) {  }
+        unsigned int GetProgramId()
+        {
+            return shader->GetProgram();
+        }
     };
 }

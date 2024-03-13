@@ -11,5 +11,6 @@ namespace Gly
 
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+        glUseProgram(material.GetProgramId());
     }
 }
