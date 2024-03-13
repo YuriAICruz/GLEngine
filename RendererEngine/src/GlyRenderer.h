@@ -7,7 +7,7 @@ namespace Gly
     class GLY_API GlyRenderer
     {
     public:
-        GlyRenderer();
+        GlyRenderer(int argc, char* argv[]);
         ~GlyRenderer();
 
     private:

@@ -4,8 +4,13 @@
 
 namespace Gly
 {
-    GlyRenderer::GlyRenderer()
+    GlyRenderer::GlyRenderer(int argc, char* argv[])
     {
+        // Loop through each argument from console
+        // for (int i = 0; i < argc; ++i) {
+        //     char* arg = argv[i];
+        // }
+        
         if (!glfwInit())
         {
             throw std::runtime_error("Failed to Initialize GL");

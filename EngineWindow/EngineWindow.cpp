@@ -2,8 +2,8 @@
 
 #include "GlyRenderer.h"
 
-int main(void)
+int main(int argc, char* argv[])
 {
-    auto renderer = Gly::GlyRenderer();
+    auto renderer = Gly::GlyRenderer(argc, argv);
     return 0;
 }
