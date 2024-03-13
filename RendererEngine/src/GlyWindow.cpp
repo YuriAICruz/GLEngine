@@ -10,6 +10,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "GLTools.h"
 #include "Shader.h"
 
 namespace Gly
@@ -43,21 +44,23 @@ namespace Gly
 
         std::cout << glGetString(GL_VERSION) << std::endl;
 
-        float vertices[9] = {
-            1, 1, 0,
-            1, -1, 0,
-            -1, -1, 0
+        float vertices[] = {
+            0.5, 0.5, 0,
+            0.5, -0.5, 0,
+            -0.5, -0.5, 0,
+            -0.5, 0.5, 0
         };
 
-        float triangles[3] = {
-            0, 1, 2
+        unsigned int triangles[] = {
+            0, 1, 2,
+            0, 2, 3
         };
 
         Shader shader = Shader("./shaders/unlit.vert.glsl", ".\\shaders\\unlit.frag.glsl");
         Material mat = Material(&shader);
         Model triangle = Model(
             std::vector<float>(std::begin(vertices), std::end(vertices)),
-            std::vector<int>(std::begin(triangles), std::end(triangles)),
+            std::vector<unsigned int>(std::begin(triangles), std::end(triangles)),
             Vector3(0, 0, 0),
             Vector3(1, 1, 1),
             mat

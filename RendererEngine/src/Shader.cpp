@@ -7,62 +7,64 @@
 #include <thread>
 #include <GL/glew.h>
 
+#include "GLTools.h"
+
 namespace Gly
 {
     Shader::Shader(const char* vertFilePath, const char* fragFilePath)
     {
-        program = glCreateProgram();
-        unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
+        GLCall(program = glCreateProgram());
+        GLCall(unsigned int vs = glCreateShader(GL_VERTEX_SHADER));
         std::string str = readFileToString(vertFilePath);
         const char* c = str.c_str();
-        glShaderSource(vs, 1, &c, nullptr);
-        glCompileShader(vs);
+        GLCall(glShaderSource(vs, 1, &c, nullptr));
+        GLCall(glCompileShader(vs));
 
         if (checkError(vs, c))
         {
-            glDeleteShader(vs);
+            GLCall(glDeleteShader(vs));
             return;
         }
 
-        unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
+        GLCall(unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER));
         str = readFileToString(fragFilePath);
         c = str.c_str();
-        glShaderSource(fs, 1, &c, nullptr);
-        glCompileShader(fs);
+        GLCall(glShaderSource(fs, 1, &c, nullptr));
+        GLCall(glCompileShader(fs));
 
         if (checkError(fs, c))
         {
-            glDeleteShader(fs);
+            GLCall(glDeleteShader(fs));
             return;
         }
 
-        glAttachShader(program, vs);
-        glAttachShader(program, fs);
+        GLCall(glAttachShader(program, vs));
+        GLCall(glAttachShader(program, fs));
 
-        glLinkProgram(program);
-        glValidateProgram(program);
+        GLCall(glLinkProgram(program));
+        GLCall(glValidateProgram(program));
 
-        glDeleteShader(vs);
-        glDeleteShader(fs);
+        GLCall(glDeleteShader(vs));
+        GLCall(glDeleteShader(fs));
     }
 
     Shader::~Shader()
     {
-        glDeleteProgram(program);
+        GLCall(glDeleteProgram(program));
     }
 
     bool Shader::checkError(int id, const char* source) const
     {
         int result;
-        glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+        GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result));
 
         if (result == GL_FALSE)
         {
             int length;
-            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+            GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length));
 
             char* message = (char*)alloca(length * sizeof(char));
-            glGetShaderInfoLog(id, length, &length, message);
+            GLCall(glGetShaderInfoLog(id, length, &length, message));
             std::cout << "Failed to compile: " << message << std::endl;
             std::cout << "SOURCE CODE:\n{\n" << source << "\n}" << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(400));

@@ -116,7 +116,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);$(SolutionDir)GLFW\x64\lib-vc2022\glfw3.lib;opengl32.lib;$(SolutionDir)GLEW\lib\Release\x64\glew32s.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);$(SolutionDir)GLFW\x64\lib-vc2022\glfw3.lib;opengl32.lib;$(SolutionDir)GLEW\lib\Release\x64\glew32s.lib;glu32.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "$(SolutionDir)RendererEngine\src\shaders\" "$(TargetDir)shaders\" /E /Y</Command>
@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\framework.h" />
+    <ClInclude Include="src\GLTools.h" />
     <ClInclude Include="src\GlyRenderer.h" />
     <ClInclude Include="src\GlyWindow.h" />
     <ClInclude Include="src\Material.h" />
