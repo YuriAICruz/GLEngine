@@ -1,37 +1,26 @@
 ﻿#include "GlyRenderer.h"
-
-#include <exception>
+#include <stdexcept>
 #include <GLFW/glfw3.h>
 
 namespace Gly
 {
     GlyRenderer::GlyRenderer()
-    {        
-        GLFWwindow* window;
-
+    {
         if (!glfwInit())
         {
-            throw std::exception("Failed to Initialize GL");
+            throw std::runtime_error("Failed to Initialize GL");
         }
 
-        window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-        if (!window)
-        {
-            glfwTerminate();
-            throw std::exception("Failed to create GL window");
-        }
-
-        /* Make the window's context current */
-        glfwMakeContextCurrent(window);
+        window = GlyWindow(640, 480, "Engine");
 
         /* Loop until the user closes the window */
-        while (!glfwWindowShouldClose(window))
+        while (!glfwWindowShouldClose(window.getGLFWindow()))
         {
             /* Render here */
             glClear(GL_COLOR_BUFFER_BIT);
 
             /* Swap front and back buffers */
-            glfwSwapBuffers(window);
+            glfwSwapBuffers(window.getGLFWindow());
 
             /* Poll for and process events */
             glfwPollEvents();

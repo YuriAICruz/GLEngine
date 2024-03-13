@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "framework.h"
+#include "GlyWindow.h"
 
 namespace Gly
 {
@@ -8,5 +9,8 @@ namespace Gly
     public:
         GlyRenderer();
         ~GlyRenderer();
+
+    private:
+        GlyWindow window;
     };
 }
