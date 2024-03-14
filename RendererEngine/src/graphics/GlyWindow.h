@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "framework.h"
+#include "../framework.h"
 #include <string>
 
 class GLFWwindow;
@@ -18,8 +18,8 @@ namespace Gly
         GlyWindow(GlyRenderer& rdr, int width, int height, const std::string& title);
         ~GlyWindow();
         
-        bool isOpen();
-        void render();
+        bool isOpen() const;
+        void render() const;
 
         GLFWwindow* getGLFWindow() const
         {

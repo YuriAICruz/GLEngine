@@ -41,12 +41,12 @@ namespace Gly
         glfwTerminate();
     }
 
-    bool GlyWindow::isOpen()
+    bool GlyWindow::isOpen() const
     {
         return !glfwWindowShouldClose(window);
     }
 
-    void GlyWindow::render()
+    void GlyWindow::render() const
     {
         renderer.render(window);
     }

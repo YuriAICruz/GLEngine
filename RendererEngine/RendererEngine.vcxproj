@@ -241,25 +241,32 @@
       <AdditionalIncludeDirectories>G:\Projects\Cpp\GLEngine\GLFW\x64\include;G:\Projects\Cpp\GLEngine\GLEW\include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="src\GlyRenderer.cpp" />
-    <ClCompile Include="src\GlyWindow.cpp" />
-    <ClCompile Include="src\Material.cpp" />
+    <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\graphics\GlyRenderer.cpp" />
+    <ClCompile Include="src\graphics\GlyWindow.cpp" />
+    <ClCompile Include="src\graphics\Material.cpp" />
+    <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\Model.cpp" />
-    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Transform.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Color.h" />
+    <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\framework.h" />
-    <ClInclude Include="src\GLTools.h" />
-    <ClInclude Include="src\GlyRenderer.h" />
-    <ClInclude Include="src\GlyWindow.h" />
-    <ClInclude Include="src\Material.h" />
+    <ClInclude Include="src\graphics\GLTools.h" />
+    <ClInclude Include="src\graphics\GlyRenderer.h" />
+    <ClInclude Include="src\graphics\GlyWindow.h" />
+    <ClInclude Include="src\graphics\Material.h" />
+    <ClInclude Include="src\graphics\Shader.h" />
     <ClInclude Include="src\Model.h" />
-    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\ecs\" />
     <Folder Include="src\shaders\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

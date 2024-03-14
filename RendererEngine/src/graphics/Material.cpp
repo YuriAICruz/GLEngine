@@ -5,8 +5,8 @@
 #include <GL/glew.h>
 
 #include "Shader.h"
-#include "Color.h"
 #include "GLTools.h"
+#include "../Color.h"
 
 namespace Gly
 {

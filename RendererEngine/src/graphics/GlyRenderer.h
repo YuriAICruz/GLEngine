@@ -1,6 +1,8 @@
 ﻿#pragma once
-#include "framework.h"
-#include "Model.h"
+#include "../framework.h"
+#include "../Model.h"
+
+#include <vector>
 
 class GLFWwindow;
 

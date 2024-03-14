@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "framework.h"
-#include "Color.h"
+#include "../framework.h"
+#include "../Color.h"
 
 namespace Gly
 {
