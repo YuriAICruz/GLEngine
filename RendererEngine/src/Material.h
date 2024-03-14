@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Shader.h"
+#include "Color.h"
 
 namespace Gly
 {
@@ -9,11 +9,13 @@ namespace Gly
     {
     private:
         Shader* shader;
+        Color color;
+        int colorLocation;
+
     public:
-        Material(Shader* shader) : shader(shader) {  }
-        unsigned int GetProgramId()
-        {
-            return shader->GetProgram();
-        }
+        Material(Shader* shader);
+        Material(Shader* shader, Color color);
+
+        void useMaterial();
     };
 }

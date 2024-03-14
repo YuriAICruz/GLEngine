@@ -8,7 +8,7 @@ namespace Gly
     func;\
     ErrorHandler::GLGetErrors(#func, __FILE__, __LINE__)
 
-    static class ErrorHandler
+    class ErrorHandler
     {
     public:
         static void GLClearErrors()
