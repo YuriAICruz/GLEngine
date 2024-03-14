@@ -1,11 +1,12 @@
 ﻿#pragma once
+#include "framework.h"
 #include "Color.h"
 
 namespace Gly
 {
     class Shader;
 
-    class Material
+    class GLY_API Material
     {
     private:
         Shader* shader;

@@ -1,8 +1,9 @@
 ﻿#pragma once
+#include "framework.h"
 
 namespace Gly
 {
-    struct Vector3
+    struct GLY_API Vector3
     {
     public:
         Vector3() = default;

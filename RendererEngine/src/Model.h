@@ -1,12 +1,13 @@
 ﻿#pragma once
 #include <vector>
 
+#include "framework.h"
 #include "Material.h"
 #include "Vector3.h"
 
 namespace Gly
 {
-    class Model
+    class GLY_API Model
     {
     private:
         unsigned int vertexDataCount = 3;

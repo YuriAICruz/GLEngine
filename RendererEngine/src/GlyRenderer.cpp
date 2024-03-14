@@ -9,6 +9,10 @@ namespace Gly
 {
     GlyRenderer::GlyRenderer()
     {
+        if (!glfwInit())
+        {
+            throw std::runtime_error("Failed to Initialize GL");
+        }
     }
 
     GlyRenderer::~GlyRenderer()

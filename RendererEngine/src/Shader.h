@@ -1,9 +1,10 @@
 ﻿#pragma once
+#include "framework.h"
 #include <string>
 
 namespace Gly
 {
-    class Shader
+    class GLY_API Shader
     {
     private:
         unsigned int program;

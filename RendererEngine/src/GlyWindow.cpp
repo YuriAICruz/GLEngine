@@ -1,7 +1,5 @@
 ﻿#include "GlyWindow.h"
 #include "GlyRenderer.h"
-#include "Model.h"
-#include "Shader.h"
 
 #include <stdexcept>
 #include <string>
@@ -15,11 +13,6 @@ namespace Gly
 {
     GlyWindow::GlyWindow(GlyRenderer& rdr, int width, int height, const std::string& title) : renderer(rdr)
     {
-        if (!glfwInit())
-        {
-            throw std::runtime_error("Failed to Initialize GL");
-        }
-
         window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 
         if (!window)
@@ -41,40 +34,20 @@ namespace Gly
         }
 
         std::cout << glGetString(GL_VERSION) << std::endl;
-
-        float vertices[] = {
-            0.5, 0.5, 0,
-            0.5, -0.5, 0,
-            -0.5, -0.5, 0,
-            -0.5, 0.5, 0
-        };
-
-        unsigned int triangles[] = {
-            0, 1, 2,
-            0, 2, 3
-        };
-
-        Shader shader = Shader("./shaders/unlit.vert.glsl", ".\\shaders\\unlit.frag.glsl");
-        Material mat = Material(&shader, Color(0.2f, 0.3f, 0.8f, 1.0f));
-        Model triangle = Model(
-            std::vector<float>(std::begin(vertices), std::end(vertices)),
-            std::vector<unsigned int>(std::begin(triangles), std::end(triangles)),
-            Vector3(0, 0, 0),
-            Vector3(1, 1, 1),
-            mat
-        );
-
-        renderer.addToContext(&triangle);
-
-        /* Loop until the user closes the window */
-        while (!glfwWindowShouldClose(window))
-        {
-            renderer.render(window);
-        }
     }
 
     GlyWindow::~GlyWindow()
     {
         glfwTerminate();
+    }
+
+    bool GlyWindow::isOpen()
+    {
+        return !glfwWindowShouldClose(window);
+    }
+
+    void GlyWindow::render()
+    {
+        renderer.render(window);
     }
 }

@@ -17,6 +17,9 @@ namespace Gly
     public:
         GlyWindow(GlyRenderer& rdr, int width, int height, const std::string& title);
         ~GlyWindow();
+        
+        bool isOpen();
+        void render();
 
         GLFWwindow* getGLFWindow() const
         {
