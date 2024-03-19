@@ -47,6 +47,11 @@ namespace Gly
         model->generateBuffer();
     }
 
+    void GlyRenderer::setCurrentCamera(Camera* camera)
+    {
+        currentCamera = camera;
+    }
+
     void GlyRenderer::clearContext()
     {
         modelsToRender.clear();

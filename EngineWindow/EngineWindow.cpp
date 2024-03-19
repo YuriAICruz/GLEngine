@@ -9,6 +9,7 @@
 #include <windows.h>
 
 #include "Color.h"
+#include "ecs/Camera.h"
 
 Gly::Entity CreateObject(Gly::Material* mat, float offset)
 {
@@ -50,9 +51,13 @@ int main(int argc, char* argv[])
     auto triangleB = CreateObject(&matB, 0.25f);
     auto triangleC = CreateObject(&matB, -0.25f);
 
+    Gly::Entity camera = Gly::Entity();
+    triangle.addComponent(std::make_shared<Gly::Camera>());
+
     renderer.addToContext(triangleB.getComponent<Gly::Model>());
     renderer.addToContext(triangleC.getComponent<Gly::Model>());
     renderer.addToContext(triangle.getComponent<Gly::Model>());
+    renderer.setCurrentCamera(camera.getComponent<Gly::Camera>());
 
     /* Loop until the user closes the window */
     while (window.isOpen())

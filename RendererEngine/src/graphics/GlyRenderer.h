@@ -8,10 +8,13 @@ class GLFWwindow;
 
 namespace Gly
 {
+    class Camera;
     class GLY_API GlyRenderer
     {
     private:
         std::vector<Model*> modelsToRender;
+        Camera* currentCamera;
+
     public:
         GlyRenderer();
         ~GlyRenderer();
@@ -19,6 +22,7 @@ namespace Gly
         void render(GLFWwindow* window);
 
         void addToContext(Model* model);
+        void setCurrentCamera(Camera* camera);
         void clearContext();
         void removeFromContext(Model* model);
     };
