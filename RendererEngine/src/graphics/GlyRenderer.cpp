@@ -13,6 +13,10 @@ namespace Gly
         {
             throw std::runtime_error("Failed to Initialize GL");
         }
+
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
     }
 
     GlyRenderer::~GlyRenderer()
@@ -26,7 +30,7 @@ namespace Gly
 
         for (auto model : modelsToRender)
         {
-            model->render();   
+            model->render();
         }
 
         /* Swap front and back buffers */

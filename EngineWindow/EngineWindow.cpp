@@ -8,7 +8,6 @@
 
 #include "Entity.h"
 
-
 int main(int argc, char* argv[])
 {
     char buffer[MAX_PATH];

@@ -16,6 +16,7 @@ namespace Gly
         Material& material;
         std::vector<float> vertices;
         std::vector<unsigned int> triangles;
+        unsigned int vao;
         unsigned int buffer;
         unsigned int indexBuffer;
 

@@ -9,6 +9,9 @@ namespace Gly
     {
         unsigned int verticesCount = vertices.size() / vertexDataCount;
 
+        GLCall(glGenVertexArrays(1, &vao));
+        GLCall(glBindVertexArray(vao));
+        
         GLCall(glGenBuffers(1, &buffer));
         GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
         GLCall(
