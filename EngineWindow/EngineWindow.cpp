@@ -2,11 +2,13 @@
 
 #include "graphics/GlyRenderer.h"
 #include "graphics/GlyWindow.h"
-#include "Model.h"
+#include "graphics/Material.h"
+#include "graphics/Model.h"
+#include "ecs/Entity.h"
 #include "graphics/Shader.h"
 #include <windows.h>
 
-#include "Entity.h"
+#include "Color.h"
 
 Gly::Entity CreateObject(Gly::Material* mat, float offset)
 {

@@ -1,14 +1,14 @@
 ﻿#pragma once
-#include "framework.h"
-#include "graphics/Material.h"
-#include "Vector3.h"
+#include "../framework.h"
+#include "../ecs/Component.h"
 
 #include <vector>
 
-#include "Component.h"
-
 namespace Gly
 {
+    class Vector3;
+    class Material;
+
     class GLY_API Model : public Component
     {
     private:

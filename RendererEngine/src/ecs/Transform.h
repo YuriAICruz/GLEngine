@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include "framework.h"
+#include "../framework.h"
 #include "Component.h"
-#include "Vector3.h"
+#include "../Vector3.h"
 
 namespace Gly
 {

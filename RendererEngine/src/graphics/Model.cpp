@@ -1,7 +1,8 @@
 ﻿#include "Model.h"
 #include <GL/glew.h>
 
-#include "graphics/GLTools.h"
+#include "GLTools.h"
+#include "Material.h"
 
 namespace Gly
 {
