@@ -13,7 +13,7 @@ namespace Gly
     {
     private:
         unsigned int vertexDataCount = 3;
-        Material& material;
+        Material* material;
         std::vector<float> vertices;
         std::vector<unsigned int> triangles;
         unsigned int vao;
@@ -21,7 +21,7 @@ namespace Gly
         unsigned int indexBuffer;
 
     public:
-        Model(const std::vector<float>& vertices, const std::vector<unsigned int>& triangles, Material& mat) :
+        Model(const std::vector<float>& vertices, const std::vector<unsigned int>& triangles, Material* mat) :
             material(mat),
             vertices(vertices),
             triangles(triangles)

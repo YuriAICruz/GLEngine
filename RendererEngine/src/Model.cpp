@@ -21,7 +21,6 @@ namespace Gly
         GLCall(glEnableVertexAttribArray(0));
         GLCall(glVertexAttribPointer(0, vertexDataCount, GL_FLOAT, GL_FALSE, sizeof(float) * vertexDataCount, 0));
 
-        material.useMaterial();
 
         unsigned int trianglesCount = triangles.size() / 3;
         GLCall(glGenBuffers(1, &indexBuffer));
@@ -35,6 +34,9 @@ namespace Gly
     {
         unsigned int trianglesCount = triangles.size() / 3;
 
+        GLCall(glBindVertexArray(vao));
+        GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
+        material->useMaterial();
         GLCall(glDrawElements(GL_TRIANGLES, trianglesCount * 3, GL_UNSIGNED_INT, nullptr));
     }
 }

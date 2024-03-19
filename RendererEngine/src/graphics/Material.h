@@ -17,6 +17,6 @@ namespace Gly
         Material(Shader* shader);
         Material(Shader* shader, Color color);
 
-        void useMaterial();
+        void useMaterial() const;
     };
 }

@@ -27,7 +27,7 @@ namespace Gly
         }
     }
 
-    void Material::useMaterial()
+    void Material::useMaterial() const
     {
         GLCall(glUseProgram(shader->GetProgram()));
         GLCall(glUniform4f(colorLocation, color.r, color.g, color.b, color.a));
