@@ -21,12 +21,9 @@ namespace Gly
         unsigned int indexBuffer;
 
     public:
-        Model(const std::vector<float>& vertices, const std::vector<unsigned int>& triangles, Material* mat) :
-            material(mat),
-            vertices(vertices),
-            triangles(triangles)
-        {
-        }
+        Model(const std::vector<float>& vertices, const std::vector<unsigned int>& triangles, Material* mat);
+
+        Model(const char* gltfFilePath, Material* mat, bool binary = true);
 
         void generateBuffer();
         void render();
