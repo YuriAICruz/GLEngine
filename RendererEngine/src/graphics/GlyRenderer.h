@@ -1,14 +1,14 @@
 ﻿#pragma once
 #include "../framework.h"
-#include "Model.h"
-
 #include <vector>
 
 class GLFWwindow;
 
 namespace Gly
 {
+    class Model;
     class Camera;
+
     class GLY_API GlyRenderer
     {
     private:
