@@ -16,20 +16,31 @@ namespace Gly
 
     Material::Material(Shader* shader, Color color) : shader(shader), color(color)
     {
-        auto u_color = "u_Color";
-
-        GLCall(colorLocation = glGetUniformLocation(shader->GetProgram(), u_color));
-
-        if (colorLocation == -1)
-        {
-            std::cerr << "could not find uniform location [" << u_color << "]" << std::endl;
-            return;
-        }
+        getUniformLocation(colorLocation, "u_Color");
+        getUniformLocation(mainTextureLocation, "u_MainTex");
     }
 
     void Material::useMaterial() const
     {
         GLCall(glUseProgram(shader->GetProgram()));
         GLCall(glUniform4f(colorLocation, color.r, color.g, color.b, color.a));
+    }
+
+    bool Material::getUniformLocation(int& location, const char* name)
+    {
+        GLCall(location = glGetUniformLocation(shader->GetProgram(), name));
+
+        if (location == -1)
+        {
+            std::cerr << "could not find uniform location [" << name << "]" << std::endl;
+            return false;
+        }
+
+        return true;
+    }
+
+    void Material::setTexture(const Texture& tex)
+    {
+        
     }
 }
