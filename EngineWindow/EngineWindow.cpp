@@ -10,28 +10,8 @@
 
 #include "Color.h"
 #include "ecs/Camera.h"
+#include "graphics/Texture.h"
 
-Gly::Entity CreateObject(Gly::Material* mat, float offset)
-{
-    float vertices[] = {
-        0.5f + offset, 0.5f + offset, 0,
-        0.5f + offset, -0.5f + offset, 0,
-        -0.5f + offset, -0.5f + offset, 0,
-        -0.5f + offset, 0.5f + offset, 0
-    };
-
-    unsigned int triangles[] = {
-        0, 1, 2,
-        0, 2, 3
-    };
-
-    Gly::Entity triangle = Gly::Entity();
-    triangle.addComponent(std::make_shared<Gly::Model>(
-        std::vector<float>(std::begin(vertices), std::end(vertices)),
-        std::vector<unsigned int>(std::begin(triangles), std::end(triangles)),
-        mat));
-    return triangle;
-}
 
 int main(int argc, char* argv[])
 {
@@ -44,19 +24,24 @@ int main(int argc, char* argv[])
     Gly::GlyWindow window = Gly::GlyWindow(renderer, 640, 480, "Engine");
 
     Gly::Shader shader = Gly::Shader("./shaders/unlit.vert.glsl", ".\\shaders\\unlit.frag.glsl");
+
+    Gly::Texture tex("res/textures/face.jpg");
+
     Gly::Material mat = Gly::Material(&shader, Gly::Color(0.2f, 0.3f, 0.8f, 1.0f));
     Gly::Material matB = Gly::Material(&shader, Gly::Color(0.1f, 0.15f, 0.6f, 1.0f));
 
-    auto triangle = CreateObject(&mat, 0);
-    auto triangleB = CreateObject(&matB, 0.25f);
-    auto triangleC = CreateObject(&matB, -0.25f);
+    mat.setTexture(tex);
+
+    Gly::Entity plane = Gly::Entity();
+    plane.addComponent(std::make_shared<Gly::Model>("res/models/plane.glb", &mat));
+    Gly::Entity cross = Gly::Entity();
+    cross.addComponent(std::make_shared<Gly::Model>("res/models/cross.gltf", &matB, false));
 
     Gly::Entity camera = Gly::Entity();
-    triangle.addComponent(std::make_shared<Gly::Camera>());
+    camera.addComponent(std::make_shared<Gly::Camera>());
 
-    renderer.addToContext(triangleB.getComponent<Gly::Model>());
-    renderer.addToContext(triangleC.getComponent<Gly::Model>());
-    renderer.addToContext(triangle.getComponent<Gly::Model>());
+    renderer.addToContext(plane.getComponent<Gly::Model>());
+    renderer.addToContext(cross.getComponent<Gly::Model>());
     renderer.setCurrentCamera(camera.getComponent<Gly::Camera>());
 
     /* Loop until the user closes the window */
